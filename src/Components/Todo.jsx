@@ -49,6 +49,21 @@ const Todo = () => {
     localStorage.setItem("todos", JSON.stringify(todoList));
   }, [todoList]);
 
+  // Function to check screen size
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 370);
+
+  // Check screen size on resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 370);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   // <div className="bg-white place-self-center w-11/12 max-w-md flex flex-col min-h-[550px] rounded-xl px-5"></div>
 
   return (
@@ -70,9 +85,9 @@ const Todo = () => {
 
         <button
           onClick={add}
-          className="border-none rounded-full bg-orange-600 w-32 h-14 text-white text-lg font-medium cursor-pointer "
+          className="border-none rounded-full bg-orange-600 w-32 md:w-32  h-14 text-white text-lg font-medium cursor-pointer "
         >
-          Add
+          {isMobile ? "+" : "Add"}
         </button>
       </div>
 

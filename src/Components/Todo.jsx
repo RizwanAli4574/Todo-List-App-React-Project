@@ -50,12 +50,12 @@ const Todo = () => {
   }, [todoList]);
 
   // Function to check screen size
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 370);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 400);
 
   // Check screen size on resize
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 370);
+      setIsMobile(window.innerWidth <= 400);
     };
 
     window.addEventListener("resize", handleResize);

@@ -14,7 +14,7 @@ const Todoitems = ({ text, id, isComplete, deleteTodo, toggle }) => {
       >
         <img src={isComplete ? tick : not_tick} alt="" className="w-7" />
         <p
-          className={`text-slate-700 ml-4 text-17px] decoration-slate-500
+          className={`text-slate-700 ml-4 text-[17px] decoration-slate-500 break-words whitespace-normal overflow-hidden
             ${isComplete ? "line-through" : ""}`}
         >
           {text}
